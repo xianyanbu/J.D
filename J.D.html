@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>京东(JD.COM)-综合网购首选-正品低价、品质保障、配送及时、轻松购物！</title>
+    <link rel="stylesheet" type="text/css" href="J.D.css">
+
+</head>
+<body>
+  <div id="handler">
+      <ul id="menu">
+          <li>1F<span>服饰</span></li>
+          <li>2F<span>美妆</span></li>
+          <li>3F<span>手机</span></li>
+          <li>4F<span>家电</span></li>
+          <li>5F<span>数码</span></li>
+          <li>6F<span>运动</span></li>
+          <li>7F<span>居家</span></li>
+          <li>8F<span>母婴</span></li>
+          <li>9F<span>食品</span></li>
+          <li>10F<span>图书</span></li>
+          <li>11F<span>服务</span></li>
+      </ul>
+  </div>
+ <div id="container">
+     <img src="images/head.png">
+     <div id="floor0" ><img src="images/f1.png"></div>
+     <div id="floor1"  ><img src="images/f2.png"></div>
+     <div id="floor2" ><img src="images/f3.png"></div>
+     <div id="floor3"  ><img src="images/f4.png"></div>
+     <div id="floor4" ><img src="images/f5.png"></div>
+     <div id="floor5" ><img src="images/f6.png"></div>
+     <div id="floor6"><img src="images/f7.png"></div>
+     <div id="floor7"><img src="images/f8.png"></div>
+     <div id="floor8"><img src="images/f9.png"></div>
+     <div id="floor9"><img src="images/f10.png"></div>
+     <div id="floor10"><img src="images/f11.png"></div>
+ </div>
+
+  <script type="text/javascript" src="js/jquery.js"> </script>
+  <script type="text/javascript">
+      $("li").hover(function()
+              {
+                  //鼠标划上去
+                  $(this).addClass("hover");
+              } ,function()
+              {
+                  //鼠标离开
+                  $(this).removeClass("hover");
+              }
+      )
+      var _index=0;
+      $("li").click(function()
+      {
+          _index=$(this).index();//获取鼠标点击所处li的序列号，从0开始
+          //注意：li是存在序列号的。
+          $(this).find("span").addClass("click").parent().siblings("li").find("span").removeClass("click");
+          //siblings("li")：查找所有同级别的其他li
+          var _top=$("#floor"+_index).offset().top;  //获取鼠标点击时的序列号，并找到对应的“楼层图片”，获取图片离顶部的距离。
+          $("body,html").animate({scrollTop:_top},500);//滑动条在500ms内滚动到_top的位置
+      })
+  </script>
+</body>
+</html>

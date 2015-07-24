@@ -1,0 +1,56 @@
+/*引导栏*/
+#handler{
+    width: 30px;
+    height: 330px;
+    position:fixed;
+    top: 200px;
+    left: 50px;
+}
+*{
+    margin:0;
+    padding:0;
+}
+/*设置引导栏字样的格式*/
+#handler ul li{
+    list-style-type: none;
+    width: 30px;
+    height: 30px;
+    border-bottom:1px dotted gray;
+    text-align:center;
+    line-height: 30px;
+    position:relative;
+    cursor: pointer;
+}
+/*设置鼠标移到对应“楼层”上的提示文字*/
+#handler ul li span{
+    width: 30px;
+    height: 30px;
+    background:#C81623;
+    color:white;
+    text-align: center;  /*文字居中对齐*/
+    top: 0;
+    left: 0;
+    font-size: 12px;
+    display:none;   /*隐藏内容*/
+    position: absolute;  /*absolu的定位相对于最近的一个relative进行布局*/
+}
+
+/*设置当鼠标移到对应楼层上变红并且显示文字*/
+#handler ul li.hover span{
+    display:block;
+}
+
+/*设置鼠标点击后的样式*/
+/*注意：这里click类必须加到span里面，否则不能完成功能*/
+#handler ul li span.click{
+    background:white;
+    color:#C81623;
+    display:block;
+}
+/*设置放置图片的区域*/
+#container{
+    width: 1200px;
+    height: 100%;
+    position:absolute;
+    margin: 0px 100px;
+}
